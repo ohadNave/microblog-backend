@@ -22,16 +22,19 @@ public class PostController {
 
 
     @PostMapping()
+    @CrossOrigin(origins = "http://localhost:4200")
     public Post create(@RequestBody PostDto dto){
         return service.create(dto);
     }
 
     @GetMapping("/all")
+    @CrossOrigin(origins = "http://localhost:4200")
     public List<Post> getAll(){
         return service.getAll();
     }
 
     @PatchMapping("/{id}")
+    @CrossOrigin(origins = "http://localhost:4200")
     public Post update(@PathVariable Long id,@RequestBody PostUpdateDto dto){
         Post post = service.update(id,dto);
         if(post == null){
@@ -41,6 +44,7 @@ public class PostController {
     }
 
     @DeleteMapping("/{id}")
+    @CrossOrigin(origins = "http://localhost:4200")
     public void delete(@PathVariable Long id){
         boolean deleted = service.delete(id);
         if(!deleted){

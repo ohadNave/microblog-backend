@@ -11,5 +11,6 @@ import lombok.Setter;
 @Setter
 public class PostDto {
 
-    private String text;
+    private String content;
+
 }

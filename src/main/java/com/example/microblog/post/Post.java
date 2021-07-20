@@ -23,18 +23,20 @@ public class Post {
     )
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "post_sequence")
     private Long id;
-    private String text;
+
+    @Lob
+    private String content;
     private int likes;
     private LocalDate date;
 
     @Transient
     private double rank;
 
-    public Post(String text) {
-        this.text = text;
+    public Post(String content) {
+        this.content = content;
         this.likes = 0;
         this.date = LocalDate.now();
-        this.rank=0;
+        this.rank=1;
     }
 
 

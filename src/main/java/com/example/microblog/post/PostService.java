@@ -5,8 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
-import java.sql.Date;
-import java.time.LocalDate;
 import java.util.Collection;
 import java.util.List;
 
@@ -23,7 +21,7 @@ public class PostService {
     }
 
     public Post create(PostDto dto){
-        Post post = new Post(dto.getText());
+        Post post = new Post(dto.getContent());
         return repository.save(post);
     }
 
@@ -34,7 +32,7 @@ public class PostService {
     public Post update(Long id, PostUpdateDto postUpdateDto){
         try{
             Post oldPost = getByID(id);
-            oldPost.setText(postUpdateDto.getText());
+            oldPost.setContent(postUpdateDto.getContent());
             return oldPost;
         }
         catch (IllegalStateException e){
